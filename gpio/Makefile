@@ -25,14 +25,15 @@
 
 DESTDIR=/usr
 PREFIX=/local
+PWD=`pwd`
 
 #DEBUG	= -g -O0
 DEBUG	= -O2
 CC	= gcc
-INCLUDE	= -I$(DESTDIR)$(PREFIX)/include
+INCLUDE	= -I$(PWD)/../wiringPi -I$(PWD)/../devLib
 CFLAGS	= $(DEBUG) -Wall $(INCLUDE) -Winline -pipe
 
-LDFLAGS	= -L$(DESTDIR)$(PREFIX)/lib
+LDFLAGS	= -L$(PWD)/../wiringPi -L$(PWD)/../devLib
 LIBS    = -lwiringPi -lwiringPiDev -lpthread -lm
 
 # May not need to  alter anything below this line

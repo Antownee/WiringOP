@@ -26,6 +26,8 @@ DYN_VERS_MIN=0
 VERSION=$(DYN_VERS_MAJ).$(DYN_VERS_MIN)
 DESTDIR=/usr
 PREFIX=/local
+PWD=`pwd`
+
 
 STATIC=libwiringPiDev.a
 DYNAMIC=libwiringPiDev.so.$(VERSION)
@@ -33,7 +35,7 @@ DYNAMIC=libwiringPiDev.so.$(VERSION)
 #DEBUG	= -g -O0
 DEBUG	= -O2
 CC	= gcc
-INCLUDE	= -I.
+INCLUDE	= -I. -I$(PWD)/../wiringPi
 CFLAGS	= $(DEBUG) -Wformat=2 -Wall $(INCLUDE) -Winline -pipe -fPIC
 
 LIBS    =
